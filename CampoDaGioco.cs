@@ -15,7 +15,9 @@ internal class CampoDaGioco
         Console.WriteLine("Campo inizializzato con " + nCelleDaInizializzare + " caselle con la palla");
 
     }
-
+    /// <summary>
+    /// Stampa il campo da gioco
+    /// </summary>to do migliorare la grafica
     public void StampaCampo()
     {
         for (int r = 0; r < Righe; r++)
@@ -43,6 +45,30 @@ internal class CampoDaGioco
             }
             Console.WriteLine();
         }
+    }
+
+    /// <summary>
+    /// sia passa le coordinate di una cella e si verifica se è una bomba e nel caso gli si aumenta il livello fino a farla esplodere
+    /// </summary>
+    /// <param name="inpRiga"></param>
+    /// <param name="inpColonna"></param>
+    /// <returns></returns>
+    public bool AzionaBolla(string inpRiga, string inpColonna)
+    {
+        int riga = -1;
+        int colonna = -1;
+        if (!int.TryParse(inpRiga, out riga) || !int.TryParse(inpColonna, out colonna))
+        {
+            //errore nel caso non si riesca a convertire le coordinate
+            throw new Exception("Errore nella conversione delle coordinate");
+        }
+        if (Campo[riga, colonna] == TipoCasella.Vuota)//to do shitch per gestire i vari casi
+        {
+            Console.WriteLine("Hai toccato una casella Vuota");
+        }
+        //to do gestire i varic casi qua dentro a seconda della tipologia di casella
+        // Console.WriteLine("Hai toccato una bomba in posizione " + riga + "," + colonna);
+        return true;
     }
 
     /// <summary>
