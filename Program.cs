@@ -8,6 +8,8 @@ do
     try//se c'è un errore nel codice all'interno del blocco try allora viene eseguito il blocco catch
     {
 
+        Console.WriteLine($"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        Console.WriteLine($"Ti rimangono {cdg.GetNumeroMosse()} mosse a tua disposizione");
         Console.WriteLine("Menu:");
         Console.WriteLine("1. Stampa campo");
         Console.WriteLine("2. Tocca una bomba");
@@ -32,7 +34,8 @@ do
                 string inpRiga = Console.ReadLine() ?? "";
                 Console.WriteLine("Inserisci la colonna:");
                 string inpColonna = Console.ReadLine() ?? "";
-                bool ris = cdg.AzionaBolla(inpRiga, inpColonna);
+                if (!cdg.AzionaBolla(inpRiga, inpColonna))                
+                    return;                
                 break;
             case 3:
                 return;
